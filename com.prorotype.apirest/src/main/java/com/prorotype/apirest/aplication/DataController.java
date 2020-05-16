@@ -23,7 +23,7 @@ public class DataController {
 		return ds.fetchData();
 	}
 	@GetMapping("/data/{id}")
-    public Data show(@PathVariable String id){
+    public List<Data> show(@PathVariable String id){
         int dataId = Integer.parseInt(id);
         return ds.getDataById(dataId);
     }

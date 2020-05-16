@@ -70,6 +70,28 @@ public class Data {
 	public String toString() {
 		return "Data {id=" + id + ", time=" + time + ", date=" + date + ", Sensor=" + sensor + ", valor=" + valor + "}";
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((date == null) ? 0 : date.hashCode());
+		result = prime * result + id;
+		result = prime * result + ((time == null) ? 0 : time.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (!(obj instanceof Data)) {
+			return false;
+		}
+		Data other = (Data) obj;
+		
+		if(this.date.equalsIgnoreCase(other.date)&&this.id==other.id&&this.time.equalsIgnoreCase(other.time))
+		return true;
+		else return false;
+	}
 	
 	
 	

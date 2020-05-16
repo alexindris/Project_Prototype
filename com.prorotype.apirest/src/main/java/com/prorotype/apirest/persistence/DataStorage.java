@@ -1,6 +1,8 @@
 package com.prorotype.apirest.persistence;
 
+
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import com.prorotype.apirest.domain.Data;
@@ -8,7 +10,7 @@ import com.prorotype.apirest.domain.Data;
 public class DataStorage {
 	
 	
-	private List<Data> datainfo;
+	private HashSet<Data> datainfo;
 	 
 
 	private static DataStorage instance = null;
@@ -21,17 +23,19 @@ public class DataStorage {
 	}
 	
 	public List<Data> fetchData(){
-		return datainfo;
+		return new ArrayList<Data>(datainfo);
 	}
 	
-	public Data getDataById(int id) {
+	public List<Data> getDataById(int id) {
+		List<Data> out = new ArrayList<Data>();
         for(Data d: datainfo) {
             if(d.getId() == id) {
-                return d;
+                out.add(d);
             }
         }
-        return null;
+        return out;
     }
+	
 	public boolean removeData(int id){
        Iterator<Data> it = datainfo.iterator();
        while(it.hasNext()) {
@@ -53,7 +57,7 @@ public class DataStorage {
 	
 	private DataStorage() {
 		
-		this.datainfo = new ArrayList<Data>();
+		this.datainfo = new HashSet<Data>();
 	}
 	
 	
