@@ -70,7 +70,11 @@ Add additional notes about how to deploy this on a live system
 
 ## Authors
 
-* **ÀLEX TELLO** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **NOELIA MUÑOZ** - *Initial work* - [PurpleBooth](https://github.com/NoeliaMGU)
+
+* **MARTA ORTUÑO** - *Initial work* - [PurpleBooth](https://github.com/MartaOG)
+
+* **ÀLEX TELLO** - *Initial work* - [PurpleBooth](https://github.com/alexindris)
 
 
 ## License
