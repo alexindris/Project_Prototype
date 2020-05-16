@@ -3,9 +3,9 @@
 This is our Software Lab project goal is to get, store, and show the data from our crops using IoT.
 
 This project has different phases:
-* 1 - Data collection is dealt with inside the raspberry pi and processed on it.
-* 2 - REST API  the data is transferred to an API that will save our data on a MySQL database.
-* 3 - Real native App which will be able to save all the data to the end-user   
+1. 1 - Data collection is dealt with inside the raspberry pi and processed on it.
+2. - REST API  the data is transferred to an API that will save our data on a MySQL database.
+3. 3 - Real native App which will be able to save all the data to the end-user   
 
 ## Getting Started
 
