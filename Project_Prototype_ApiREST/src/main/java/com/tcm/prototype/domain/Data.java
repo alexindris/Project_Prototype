@@ -74,7 +74,7 @@ public class Data {
 		}
 		Data other = (Data) obj;
 		
-		if(this.date.equalsIgnoreCase(other.date)&&this.id==other.id&&this.time.equalsIgnoreCase(other.time))
+		if(this.date.equalsIgnoreCase(other.date)&&this.id.equals(other.id)&&this.time.equalsIgnoreCase(other.time))
 		return true;
 		else return false;
 	}
