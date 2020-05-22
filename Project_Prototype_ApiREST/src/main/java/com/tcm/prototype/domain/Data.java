@@ -1,53 +1,42 @@
-package com.prorotype.apirest.domain;
+package com.tcm.prototype.domain;
 
-
+import com.tcm.prototype.application.dto.DataDTO;
+import com.tcm.prototype.utilities.InvalidParamException;
 
 public class Data {
-	private int id;
+	private String id;
 	private String time;
 	private String date;
 	private String sensor;
-	private float valor;
+	private String valor;
 	
-	/**
-	 * @param id
-	 * @param time
-	 * @param date
-	 * @param sensor
-	 * @param valor
-	 */
+	public Data() {
+		
+	}
 	
-	public Data(int id, String time, String date, String sensor, float valor) {
-		super();
-		this.id = id;
-		this.time = time;
-		this.date = date;
-		this.sensor = sensor;
-		this.valor = valor;
+	public Data(DataDTO data) throws InvalidParamException {
+
+		if(data==null) throw new InvalidParamException();
+		this.id=data.getId();
+		this.time=data.getTime();
+		this.date=data.getDate();
+		this.sensor=data.getSensor();
+		this.valor=data.getValor();
+		
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public String getTime() {
 		return time;
 	}
 
-	public void setTime(String time) {
-		this.time = time;
-	}
 
 	public String getDate() {
 		return date;
-	}
-
-	public void setDate(String date) {
-		this.date = date;
 	}
 
 	public String getSensor() {
@@ -58,13 +47,10 @@ public class Data {
 		this.sensor = sensor;
 	}
 
-	public float getValor() {
+	public String getValor() {
 		return valor;
 	}
 
-	public void setValor(float valor) {
-		this.valor = valor;
-	}
 
 	@Override
 	public String toString() {
@@ -76,7 +62,7 @@ public class Data {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((date == null) ? 0 : date.hashCode());
-		result = prime * result + id;
+		result = prime * result + id.hashCode();
 		result = prime * result + ((time == null) ? 0 : time.hashCode());
 		return result;
 	}
