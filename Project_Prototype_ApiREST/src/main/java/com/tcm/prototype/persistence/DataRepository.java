@@ -17,6 +17,7 @@ public class DataRepository {
 
 	public static List<Data> getAllData() {
 		
+		
 		return new ArrayList<Data>(datainfo);
 	}
 
@@ -49,7 +50,7 @@ public static void deleteAllData() {
 	
 }
 
-public static void saveUser(Data data) throws InvalidParamException {
+public static void saveData(Data data) throws InvalidParamException {
 	if(data==null) throw new InvalidParamException();
 	if(!datainfo.add(data))throw new InvalidParamException();
 	

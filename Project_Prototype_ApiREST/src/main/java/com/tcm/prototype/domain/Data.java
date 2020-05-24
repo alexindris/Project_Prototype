@@ -4,6 +4,7 @@ import com.tcm.prototype.application.dto.DataDTO;
 import com.tcm.prototype.utilities.InvalidParamException;
 
 public class Data {
+	
 	private String id;
 	private String time;
 	private String date;
