@@ -41,7 +41,7 @@ public class DataController {
 	
 	public static DataDTO createData(DataDTO dataDTO) throws InvalidParamException {
 		Data data = new Data(dataDTO);
-		DataRepository.saveUser(data);
+		DataRepository.saveData(data);
 		return new DataDTO(data);
 	}
 	
