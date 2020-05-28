@@ -14,7 +14,7 @@ while True:
     humidity = round(humidity, 2)
     date = datetime.datetime.now()
     currentTime = date.strftime("%X")
-    currentDay = date.strftime("%X")
+    currentDay = date.strftime("%x")
     
     results = [id, currentTime, currentDay, sensor, humidity]
     title = ["ID", "Time: ", "Date: ", "Sensor: ", "Value: "]
