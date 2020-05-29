@@ -3,6 +3,8 @@ package com.tcm.prototype.domain;
 import com.tcm.prototype.application.dto.DataDTO;
 import com.tcm.prototype.utilities.InvalidParamException;
 
+@Entity
+@Table(name = "user_tbl")
 public class Data {
 	
 	private String id;
