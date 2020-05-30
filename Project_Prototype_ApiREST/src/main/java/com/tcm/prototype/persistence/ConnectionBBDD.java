@@ -27,6 +27,8 @@ import oracle.jdbc.driver.OracleDriver;
 
 
 
+
+
 public class ConnectionBBDD implements Connection {
 	private Connection connection;
 
