@@ -23,7 +23,7 @@ while True:
               "time": currentTime,
               "date": currentDay,
               "sensor": sensor,
-              "valor": humidity
+              "value": humidity
               }
     x = requests.post(url, json = values)
     print(x.text)
