@@ -16,21 +16,13 @@ dependencies {
 	implementation group: 'com.google.code.gson', name: 'gson', version: '2.7'
 	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
 	
-	//implementation 'org.springframework.boot:spring-boot-starter-data-jpa'//sql
-	//implementation 'com.microsoft.sqlserver:sqljdbc4'//sql
-	
 	implementation 'com.oracle.jdbc:ojdbc8'//oracle
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa' //oracle
 	implementation 'org.springframework.boot:spring-boot-starter-web' //oracle
 	
-	
-	//implementation 'org.hibernate:hibernate-core' 
-	implementation 'org.hibernate:hibernate-entitymanager'//prova
-	//implementation 'org.springframework.boot:spring-boot-starter-web' //prova
-	//implementation 'javax.xml.bind:jaxb-api' //prova
-	//implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.2.1.Final'
+	//teoricament, aquesta dependency hauria de gestionar ja el entityMangerFactory pero no ho fa
 	implementation 'org.springframework.boot:spring-boot-starter' //prova
-
+	
 	
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'

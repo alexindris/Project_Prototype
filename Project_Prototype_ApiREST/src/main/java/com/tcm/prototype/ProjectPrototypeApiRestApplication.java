@@ -11,8 +11,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication(exclude = {
 	    DataSourceAutoConfiguration.class, 
-	    DataSourceTransactionManagerAutoConfiguration.class, 
-	    /*HibernateJpaAutoConfiguration.class*/
+	    /*DataSourceTransactionManagerAutoConfiguration.class, 
+	    HibernateJpaAutoConfiguration.class*/
 	})
 @ComponentScan({"com.tcm.prototype", "com.tcm.prototype.api", "com.tcm.prototype.application",
 	"com.tcm.prototype.aplication.dto", "com.tcm.prototype.utilities"})
