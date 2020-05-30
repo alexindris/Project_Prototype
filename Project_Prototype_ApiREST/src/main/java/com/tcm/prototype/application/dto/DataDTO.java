@@ -9,7 +9,7 @@ public class DataDTO {
 	private String time;
 	private String date;
 	private String sensor;
-	private String valor;
+	private String value;
 
 	public DataDTO() {
 
@@ -20,7 +20,7 @@ public class DataDTO {
 		this.time=data.getTime();
 		this.date=data.getDate();
 		this.sensor=data.getSensor();
-		this.valor=data.getValor();
+		this.value=data.getValue();
 
 	}
 	public String getId() throws InvalidParamException {
@@ -43,10 +43,10 @@ public class DataDTO {
 			throw new InvalidParamException();
 		return sensor;
 	}
-	public String getValor() throws InvalidParamException {
-		if (valor.equals(""))
+	public String getValue() throws InvalidParamException {
+		if (value.equals(""))
 			throw new InvalidParamException();
-		return valor;
+		return value;
 	}
 	
 

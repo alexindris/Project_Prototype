@@ -3,28 +3,36 @@ package com.tcm.prototype.domain;
 import com.tcm.prototype.application.dto.DataDTO;
 import com.tcm.prototype.utilities.InvalidParamException;
 
-import javax.persistence.*;
-
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-
-@Component("Data")
-@Entity
-@Table(name = "data")
 public class Data {
-	@Id
+
 	private String id;
-	@Id
 	private String time;
-	@Id
 	private String date;
 	private String sensor;
-	private String valor;
+	private String value;
 	
 	public Data() {
 		
 	}
 	
+	public Data(String id, String time, String date, String sensor, String value) throws InvalidParamException {
+		if (id.equals(""))
+			throw new InvalidParamException();
+		if (time.equals(""))
+			throw new InvalidParamException();
+		if (date.equals(""))
+			throw new InvalidParamException();
+		if (sensor.equals(""))
+			throw new InvalidParamException();
+		if (value.equals(""))
+			throw new InvalidParamException();
+		this.id = id;
+		this.time = time;
+		this.date = date;
+		this.sensor = sensor;
+		this.value = value;
+	}
+
 	public Data(DataDTO data) throws InvalidParamException {
 
 		if(data==null) throw new InvalidParamException();
@@ -32,11 +40,9 @@ public class Data {
 		this.time=data.getTime();
 		this.date=data.getDate();
 		this.sensor=data.getSensor();
-		this.valor=data.getValor();
+		this.value=data.getValue();
 		
 	}
-	
-	@Id
 	public String getCompositeId() {
 		return id + "_" + time + "_" + date;
 	}
@@ -55,7 +61,6 @@ public class Data {
 		return date;
 	}
 
-	@Column(name = "sensor", nullable = false)
 	public String getSensor() {
 		return sensor;
 	}
@@ -64,15 +69,14 @@ public class Data {
 		this.sensor = sensor;
 	}
 	
-	@Column(name = "valor", nullable = false)
-	public String getValor() {
-		return valor;
+	public String getValue() {
+		return value;
 	}
 
 
 	@Override
 	public String toString() {
-		return "Data {id=" + id + ", time=" + time + ", date=" + date + ", Sensor=" + sensor + ", valor=" + valor + "}";
+		return "Data {id=" + id + ", time=" + time + ", date=" + date + ", Sensor=" + sensor + ", value=" + value + "}";
 	}
 
 	@Override

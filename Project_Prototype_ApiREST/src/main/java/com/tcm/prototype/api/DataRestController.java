@@ -29,12 +29,7 @@ public class DataRestController {
 		
 		DataDTO dataDTO = gson.fromJson(jData, DataDTO.class);
 		
-		DataDTO data = null;
-		if(dataController == null) {
-			System.out.println("--------DataRestController: dataRepo es null");
-		}else {
-			 data = dataController.createData(dataDTO);
-		}
+		DataDTO	 data = dataController.createData(dataDTO);
 		
 		
 		return gson.toJson(data);
@@ -42,7 +37,7 @@ public class DataRestController {
 	}
 	
 	@GetMapping("/data")
-	public String getAllData() throws InvalidParamException {
+	public String getAllData() throws InvalidParamException, NotFoundException {
 		List < DataDTO> alldata = dataController.getAllData();
 		Gson gson = new Gson();
 		return gson.toJson(alldata);
@@ -50,18 +45,18 @@ public class DataRestController {
 	}
 	@GetMapping("/data/{id}")
 	public String getAllData(@PathVariable String id) throws InvalidParamException, NotFoundException {
-		 DataDTO data = dataController.getData(id);
+		 List<DataDTO> data = dataController.getData(id);
 		Gson gson = new Gson();
 		return gson.toJson(data);
 
 	}
 	@DeleteMapping("/data")
-	public void deleteAllData() {
+	public void deleteAllData() throws InvalidParamException {
 		dataController.deleteAllData();
 	}
 	
 	@DeleteMapping("/data/{id}")
-	public void deleteData(@PathVariable String id) throws NotFoundException {
+	public void deleteData(@PathVariable String id) throws NotFoundException, InvalidParamException {
 		dataController.deleteData(id);
 	}
 	

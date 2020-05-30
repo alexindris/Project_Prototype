@@ -1,74 +1,126 @@
 package com.tcm.prototype.persistence;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
 
+import java.util.List;
 import com.tcm.prototype.domain.Data;
 import com.tcm.prototype.utilities.InvalidParamException;
 import com.tcm.prototype.utilities.NotFoundException;
-
-import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class DataRepository {
-	
-	@Autowired
-	private DataRepositoryCrud crudRepository;
-	
-	private static HashSet<Data> datainfo=new HashSet<Data>();
-	 
+public class DataRepository { 
 
 
-	public List<Data> getAllData() {
+	public List<Data> getAllData() throws NotFoundException, InvalidParamException {
 		
 		
-		return new ArrayList<Data>(datainfo);
+		ConnectionBBDD connection = ConnectionRepository.getConnection();
+		List<Data> out = new ArrayList<Data>();
+		try {
+			String sql = "SELECT * FROM DATA";
+			PreparedStatement pst = connection.prepareStatement(sql);
+			pst.clearParameters();
+			ResultSet rs= pst.executeQuery();
+			while(rs.next()) {
+				String id = rs.getString("D_ID");
+				String time = rs.getString("D_TIME");
+				String date = rs.getString("D_DATE");
+				String sensor = rs.getString("D_SENSOR");
+				String value = rs.getString("D_VALUE");
+				out.add(new Data(id, time, date, sensor, value));
+			}
+			if(out.size()==0)
+			throw new NotFoundException();
+			return out;
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+			throw new InvalidParamException();
+		}
 	}
 
 
-public Data getData(String id) throws NotFoundException {
-	for(Data data:datainfo) {
-		if(data.getId().equals(id)) return data;
-	}
-	throw new NotFoundException();
-}
-
-public void deleteData(String id) throws NotFoundException {
+public List<Data> getData(String dataId) throws NotFoundException, InvalidParamException {
 	
-Iterator<Data> it = datainfo.iterator();
-while(it.hasNext()) {
-	
-	Data data = it.next();
-	if(data.getId().equals(id)) {
-		it.remove();
-		return;
+	ConnectionBBDD connection = ConnectionRepository.getConnection();
+	List<Data> out = new ArrayList<Data>();
+	try {
+		String sql = "SELECT * FROM DATA WHERE D_ID = ?";
+		PreparedStatement pst = connection.prepareStatement(sql);
+		pst.clearParameters();
+		pst.setString(1, dataId);
+		ResultSet rs= pst.executeQuery();
+		while(rs.next()) {
+			String id = rs.getString("D_ID");
+			String time = rs.getString("D_TIME");
+			String date = rs.getString("D_DATE");
+			String sensor = rs.getString("D_SENSOR");
+			String value = rs.getString("D_VALUE");
+			out.add(new Data(id, time, date, sensor, value));
+		}
+		if(out.size()==0)
+		throw new NotFoundException();
+		return out;
 		
+	}catch(SQLException e) {
+		e.printStackTrace();
+		throw new InvalidParamException();
+	}
+}
+
+public void deleteData(String id) throws NotFoundException, InvalidParamException {
+	
+	try {
+		ConnectionBBDD connection = ConnectionRepository.getConnection();
+		String sql ="DELETE FROM DATA WHERE D_ID = ?";
+		PreparedStatement pst = connection.prepareStatement(sql);
+		pst.clearParameters();
+		pst.setString(1, id);
+		pst.executeUpdate();
+		
+		
+	}catch(SQLException e) {
+		e.printStackTrace();
+		throw new InvalidParamException();
 	}
 	
 }
-throw new NotFoundException();
-}
 
-public void deleteAllData() {
-	datainfo.clear();
-	
+
+public void deleteAllData() throws InvalidParamException {
+	try {
+	ConnectionBBDD connection = ConnectionRepository.getConnection();
+	String sql ="DELETE FROM DATA";
+	PreparedStatement pst = connection.prepareStatement(sql);
+	pst.executeUpdate();
+	}catch(SQLException e) {
+		e.printStackTrace();
+		throw new InvalidParamException();
+	}
 }
 
 public void saveData(Data data) throws InvalidParamException {
-	if(data==null) throw new InvalidParamException();
-	if(!datainfo.add(data))throw new InvalidParamException();
-	System.out.println("-------------------------IMPRIMIM DATA---------------------------");
-	System.out.println(data.toString());
-	if(crudRepository == null) {
-		System.out.println("--------DataRepository: crudRepository es null");
-	}else{
-		crudRepository.save(data);
-
+	try {
+	ConnectionBBDD connection = ConnectionRepository.getConnection();
+	String sql = "INSERT INTO DATA (D_ID,D_TIME,D_DATE,D_SENSOR,D_VALUE) values (?,?,?,?,?)";
+	PreparedStatement pst = connection.prepareStatement(sql);
+	pst.clearParameters();
+	pst.setString(1, data.getId());
+	pst.setString(2, data.getTime());
+	pst.setString(3, data.getDate());
+	pst.setString(4,data.getSensor());
+	pst.setString(5,data.getValue());
+	if(pst.executeUpdate()!=1) {
+		throw new InvalidParamException();
 	}
+}catch(SQLException e) {
+	e.printStackTrace();
+	throw new InvalidParamException();
 }
 
+}
 }

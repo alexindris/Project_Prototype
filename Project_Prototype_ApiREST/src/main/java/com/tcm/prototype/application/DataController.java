@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
 import com.tcm.prototype.application.dto.DataDTO;
@@ -20,7 +19,7 @@ public class DataController {
 	private DataRepository dataRepo;
 	 
 	
-	public List<DataDTO> getAllData() throws InvalidParamException {
+	public List<DataDTO> getAllData() throws InvalidParamException, NotFoundException {
 
 		List<Data> allData = dataRepo.getAllData();
 		return convertDataToDTO(allData);
@@ -33,29 +32,22 @@ public class DataController {
 		return result;
 	}
 	
-	public DataDTO getData(String id )throws InvalidParamException, NotFoundException{
-		Data data = dataRepo.getData(id);
-		return new DataDTO(data);
+	public List<DataDTO> getData(String id )throws InvalidParamException, NotFoundException{
+		List<Data> allData= dataRepo.getData(id);
+		return convertDataToDTO(allData);
 		
 	}
 	
-	public void deleteData(String id)throws NotFoundException{
+	public void deleteData(String id)throws NotFoundException, InvalidParamException{
 		dataRepo.deleteData(id);
 	}
-	public void deleteAllData() {
+	public void deleteAllData() throws InvalidParamException {
 		dataRepo.deleteAllData();
 	}
 	
 	public DataDTO createData(DataDTO dataDTO) throws InvalidParamException {
 		Data data = new Data(dataDTO);
-		if(dataRepo == null) {
-			System.out.println("--------DataController: dataRepo es null");
-		}else {
 			dataRepo.saveData(data);
-		}
-		
-		
-		//DataRepositoryCrud.save(data);
 		return new DataDTO(data);
 	}
 	
