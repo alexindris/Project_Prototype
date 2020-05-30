@@ -3,12 +3,17 @@ package com.tcm.prototype.domain;
 import com.tcm.prototype.application.dto.DataDTO;
 import com.tcm.prototype.utilities.InvalidParamException;
 
+import javax.persistence.*;
+
+
 @Entity
-@Table(name = "user_tbl")
+@Table(name = "data")
 public class Data {
-	
+	@Id
 	private String id;
+	@Id
 	private String time;
+	@Id
 	private String date;
 	private String sensor;
 	private String valor;

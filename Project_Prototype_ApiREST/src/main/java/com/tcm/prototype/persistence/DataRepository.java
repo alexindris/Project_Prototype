@@ -9,7 +9,13 @@ import com.tcm.prototype.domain.Data;
 import com.tcm.prototype.utilities.InvalidParamException;
 import com.tcm.prototype.utilities.NotFoundException;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.CrudRepository;
+
 public class DataRepository {
+	
+	@Autowired
+	private static DataRepositoryCrud crudRepository;
 	
 	private static HashSet<Data> datainfo=new HashSet<Data>();
 	 
@@ -53,7 +59,7 @@ public static void deleteAllData() {
 public static void saveData(Data data) throws InvalidParamException {
 	if(data==null) throw new InvalidParamException();
 	if(!datainfo.add(data))throw new InvalidParamException();
-	
+	crudRepository.save(data);
 }
 
 }

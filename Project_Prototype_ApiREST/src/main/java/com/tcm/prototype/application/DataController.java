@@ -10,12 +10,11 @@ import com.tcm.prototype.utilities.InvalidParamException;
 import com.tcm.prototype.utilities.NotFoundException;
 
 public class DataController {
-
+	 
 	
 	public static List<DataDTO> getAllData() throws InvalidParamException {
 
-		List<Data> allData = DataRepository.getAllData()
-;
+		List<Data> allData = DataRepository.getAllData();
 		return convertDataToDTO(allData);
 	}
 
@@ -42,6 +41,8 @@ public class DataController {
 	public static DataDTO createData(DataDTO dataDTO) throws InvalidParamException {
 		Data data = new Data(dataDTO);
 		DataRepository.saveData(data);
+		
+		//DataRepositoryCrud.save(data);
 		return new DataDTO(data);
 	}
 	
