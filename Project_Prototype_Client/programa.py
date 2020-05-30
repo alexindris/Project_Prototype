@@ -10,10 +10,10 @@ sensor = dht.DHT22
 id = "1"
 sensor_type = "Humidity"
 pin = 4
-
+humidity = 0
 while True:
     #humidity = dht.read_retry(sensor, pin)
-    humidity, temperature = dht.read_retry(sensor, pin)
+    #humidity, temperature = dht.read_retry(sensor, pin)
     date = datetime.datetime.now()
     
     currentTime = date.strftime("%X")
@@ -22,8 +22,8 @@ while True:
     values = {"id": id,
               "time": currentTime,
               "date": currentDay,
-              "sensor": sensor,
-              "valor": humidity
+              "sensor": sensor_type,
+              "value": humidity
               }
     x = requests.post(url, json = values)
     print(x.text)
