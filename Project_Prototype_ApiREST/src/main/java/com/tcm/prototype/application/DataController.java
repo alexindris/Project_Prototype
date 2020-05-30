@@ -3,44 +3,56 @@ package com.tcm.prototype.application;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
 import com.tcm.prototype.application.dto.DataDTO;
 import com.tcm.prototype.domain.Data;
 import com.tcm.prototype.persistence.DataRepository;
 import com.tcm.prototype.utilities.InvalidParamException;
 import com.tcm.prototype.utilities.NotFoundException;
 
+@Controller
 public class DataController {
+	
+	@Autowired
+	DataRepository dataRepo;
 	 
 	
-	public static List<DataDTO> getAllData() throws InvalidParamException {
+	public List<DataDTO> getAllData() throws InvalidParamException {
 
-		List<Data> allData = DataRepository.getAllData();
+		List<Data> allData = dataRepo.getAllData();
 		return convertDataToDTO(allData);
 	}
 
-	private static List<DataDTO> convertDataToDTO(List<Data> allData) throws InvalidParamException {
+	private List<DataDTO> convertDataToDTO(List<Data> allData) throws InvalidParamException {
 		
 		List<DataDTO> result= new ArrayList<DataDTO>();
 		for(Data data:allData) result.add(new DataDTO(data));
 		return result;
 	}
 	
-	public static DataDTO getData(String id )throws InvalidParamException, NotFoundException{
-		Data data = DataRepository.getData(id);
+	public DataDTO getData(String id )throws InvalidParamException, NotFoundException{
+		Data data = dataRepo.getData(id);
 		return new DataDTO(data);
 		
 	}
 	
-	public static void deleteData(String id)throws NotFoundException{
-		DataRepository.deleteData(id);
+	public void deleteData(String id)throws NotFoundException{
+		dataRepo.deleteData(id);
 	}
-	public static void deleteAllData() {
-		DataRepository.deleteAllData();
+	public void deleteAllData() {
+		dataRepo.deleteAllData();
 	}
 	
-	public static DataDTO createData(DataDTO dataDTO) throws InvalidParamException {
+	public DataDTO createData(DataDTO dataDTO) throws InvalidParamException {
 		Data data = new Data(dataDTO);
-		DataRepository.saveData(data);
+		if(dataRepo == null) {
+			System.out.println("--------DataController: dataRepo es null");
+		}else {
+			dataRepo.saveData(data);
+		}
+		
 		
 		//DataRepositoryCrud.save(data);
 		return new DataDTO(data);

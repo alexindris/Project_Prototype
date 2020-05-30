@@ -10,31 +10,34 @@ import com.tcm.prototype.utilities.InvalidParamException;
 import com.tcm.prototype.utilities.NotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.CrudRepository;
+//import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class DataRepository {
 	
-	private static DataRepositoryCrud crudRepository;
+	@Autowired
+	DataRepositoryCrud crudRepository;
 	
 	private static HashSet<Data> datainfo=new HashSet<Data>();
 	 
 
 
-	public static List<Data> getAllData() {
+	public List<Data> getAllData() {
 		
 		
 		return new ArrayList<Data>(datainfo);
 	}
 
 
-public static Data getData(String id) throws NotFoundException {
+public Data getData(String id) throws NotFoundException {
 	for(Data data:datainfo) {
 		if(data.getId().equals(id)) return data;
 	}
 	throw new NotFoundException();
 }
 
-public static void deleteData(String id) throws NotFoundException {
+public void deleteData(String id) throws NotFoundException {
 	
 Iterator<Data> it = datainfo.iterator();
 while(it.hasNext()) {
@@ -50,15 +53,22 @@ while(it.hasNext()) {
 throw new NotFoundException();
 }
 
-public static void deleteAllData() {
+public void deleteAllData() {
 	datainfo.clear();
 	
 }
 
-public static void saveData(Data data) throws InvalidParamException {
+public void saveData(Data data) throws InvalidParamException {
 	if(data==null) throw new InvalidParamException();
 	if(!datainfo.add(data))throw new InvalidParamException();
-	crudRepository.save(data);
+	System.out.println("-------------------------IMPRIMIM DATA---------------------------");
+	System.out.println(data.toString());
+	if(crudRepository == null) {
+		System.out.println("--------DataRepository: crudRepository es null");
+	}else{
+		crudRepository.save(data);
+
+	}
 }
 
 }

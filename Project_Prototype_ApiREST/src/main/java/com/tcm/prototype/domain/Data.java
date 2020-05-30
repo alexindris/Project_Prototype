@@ -5,6 +5,7 @@ import com.tcm.prototype.utilities.InvalidParamException;
 
 import javax.persistence.*;
 
+import org.springframework.stereotype.Service;
 
 @Entity
 @Table(name = "data")
@@ -32,6 +33,11 @@ public class Data {
 		this.valor=data.getValor();
 		
 	}
+	
+	@Id
+	public String getCompositeId() {
+		return id + "_" + time + "_" + date;
+	}
 
 	public String getId() {
 		return id;
@@ -47,6 +53,7 @@ public class Data {
 		return date;
 	}
 
+	@Column(name = "sensor", nullable = false)
 	public String getSensor() {
 		return sensor;
 	}
@@ -54,7 +61,8 @@ public class Data {
 	public void setSensor(String sensor) {
 		this.sensor = sensor;
 	}
-
+	
+	@Column(name = "valor", nullable = false)
 	public String getValor() {
 		return valor;
 	}
