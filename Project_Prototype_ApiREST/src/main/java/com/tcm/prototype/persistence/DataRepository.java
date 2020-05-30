@@ -14,7 +14,6 @@ import org.springframework.data.repository.CrudRepository;
 
 public class DataRepository {
 	
-	@Autowired
 	private static DataRepositoryCrud crudRepository;
 	
 	private static HashSet<Data> datainfo=new HashSet<Data>();
