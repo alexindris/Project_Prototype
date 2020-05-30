@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
 import com.tcm.prototype.application.dto.DataDTO;
@@ -16,7 +17,7 @@ import com.tcm.prototype.utilities.NotFoundException;
 public class DataController {
 	
 	@Autowired
-	DataRepository dataRepo;
+	private DataRepository dataRepo;
 	 
 	
 	public List<DataDTO> getAllData() throws InvalidParamException {

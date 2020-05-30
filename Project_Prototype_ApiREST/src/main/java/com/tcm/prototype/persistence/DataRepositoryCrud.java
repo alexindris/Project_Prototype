@@ -5,11 +5,14 @@ import com.tcm.prototype.domain.Data;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
+//@Configuration
 
 @Repository
-//@Bean(name="entityManagerFactory")
-public interface DataRepositoryCrud extends CrudRepository<Data, String> {
-
+public interface DataRepositoryCrud extends JpaRepository<Data, String> {
 	
+	/*@Bean
+	public Data findByName(String name);*/
 }

@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 public class DataRepository {
 	
 	@Autowired
-	DataRepositoryCrud crudRepository;
+	private DataRepositoryCrud crudRepository;
 	
 	private static HashSet<Data> datainfo=new HashSet<Data>();
 	 

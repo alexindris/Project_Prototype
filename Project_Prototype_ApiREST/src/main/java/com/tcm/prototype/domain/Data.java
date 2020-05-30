@@ -5,8 +5,10 @@ import com.tcm.prototype.utilities.InvalidParamException;
 
 import javax.persistence.*;
 
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+@Component("Data")
 @Entity
 @Table(name = "data")
 public class Data {

@@ -21,7 +21,7 @@ import com.tcm.prototype.utilities.NotFoundException;
 public class DataRestController {
 	
 	@Autowired
-	DataController dataController;
+	private DataController dataController;
 	
 	@PostMapping("/data")
 	public String crateUser(@RequestBody String jData) throws InvalidParamException {
@@ -29,7 +29,13 @@ public class DataRestController {
 		
 		DataDTO dataDTO = gson.fromJson(jData, DataDTO.class);
 		
-		DataDTO data = dataController.createData(dataDTO);
+		DataDTO data = null;
+		if(dataController == null) {
+			System.out.println("--------DataRestController: dataRepo es null");
+		}else {
+			 data = dataController.createData(dataDTO);
+		}
+		
 		
 		return gson.toJson(data);
 		

@@ -26,10 +26,12 @@ dependencies {
 	
 	//implementation 'org.hibernate:hibernate-core' 
 	implementation 'org.hibernate:hibernate-entitymanager'//prova
-	implementation 'org.springframework.boot:spring-boot-starter-web' //prova
-	
-	
+	//implementation 'org.springframework.boot:spring-boot-starter-web' //prova
+	//implementation 'javax.xml.bind:jaxb-api' //prova
+	//implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.2.1.Final'
+	implementation 'org.springframework.boot:spring-boot-starter' //prova
 
+	
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
