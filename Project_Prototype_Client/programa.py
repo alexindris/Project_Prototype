@@ -28,7 +28,8 @@ def loop(url):
         try:
             x = requests.post(url, json=values)
         except requests.exceptions.RequestException as e:  # This is the correct syntax
-            raise SystemExit(e)
+
+            print("ConnectionError:"+e)
 
         print(x.text)
         time.sleep(1)
