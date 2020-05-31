@@ -25,7 +25,11 @@ def loop(url):
                   "sensor": sensor_type,
                   "value": humidity
                   }
-        x = requests.post(url, json=values)
+        try:
+            x = requests.post(url, json=values)
+        except requests.exceptions.RequestException as e:  # This is the correct syntax
+            raise SystemExit(e)
+
         print(x.text)
         time.sleep(1)
 
