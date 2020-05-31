@@ -30,5 +30,5 @@ def loop(url):
         time.sleep(1)
 
 
-url = 'http://' + str(input("Introduce the website of the api ex(www.yourapi.com)")) + ':8080/data'
+url = 'http://' + str(raw_input("Introduce the website of the api ex(www.yourapi.com)")) + ':8080/data'
 loop(url)
