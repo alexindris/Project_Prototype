@@ -10,11 +10,14 @@ sourceCompatibility = '1.8'
 
 repositories {
 	mavenCentral()
+	
+	
 }
 
 dependencies {
 	implementation group: 'com.google.code.gson', name: 'gson', version: '2.7'
 	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+	implementation files ('lib/ojdbc14-10.2.0.2.0.jar')
 	implementation group: 'com.google.cloud.tools', name: 'appengine-gradle-plugin', version: '2.2.0' 
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
