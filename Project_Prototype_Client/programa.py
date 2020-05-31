@@ -5,6 +5,7 @@ import datetime
 import time
 import requests
 
+
 def loop(url):
     sensor = dht.DHT22
     id = "1"
@@ -24,11 +25,10 @@ def loop(url):
                   "sensor": sensor_type,
                   "value": humidity
                   }
-        x = requests.post(url, json = values)
+        x = requests.post(url, json=values)
         print(x.text)
         time.sleep(1)
 
-url = 'http://'+ input("Introduce the website of the api ex(www.yourapi.com)")+':8080/data'
+
+url = 'http://' + str(input("Introduce the website of the api ex(www.yourapi.com)")) + ':8080/data'
 loop(url)
-
-
