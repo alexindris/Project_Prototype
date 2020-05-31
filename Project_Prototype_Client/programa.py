@@ -29,11 +29,11 @@ def loop(url):
             x = requests.post(url, json=values)
         except requests.exceptions.RequestException as e:  # This is the correct syntax
 
-            print("ConnectionError:"+e)
+            print("ConnectionError:"+str(e))
 
         print(x.text)
         time.sleep(1)
 
 
-url = 'http://' + str(raw_input("Introduce the website of the api ex(www.yourapi.com)")) + ':8080/data'
+url = 'http://' + str(raw_input("Introduce the website of the api ex(www.yourapi.com): ")) + ':8080/data'
 loop(url)
