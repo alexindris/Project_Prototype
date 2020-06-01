@@ -1,5 +1,5 @@
 
-var baseUrl = "Access-Control-Allow-Origin: https://tcm-prototype-apirest.herokuapp.com/data/";
+var baseUrl = "http://localhost:8080/data/";
 var url = baseUrl;
 
 function renderChart(data, labels) {
@@ -16,15 +16,19 @@ function renderChart(data, labels) {
     });
 }
 
-$("#renderBtn").click(createChart());
+$("#renderBtn").click(prepareChart());
 
-function createChart(){
+function prepareChart(){
     getIdToUrl();
     getData();
+}
 
-    data = [20000, 14000, 12000, 15000, 18000, 19000, 22000];
+function createChart(result){
+    console.log("---RESULTAT");
+    console.log(result);
+    /*data = [20000, 14000, 12000, 15000, 18000, 19000, 22000];
     labels =  ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
-    renderChart(data, labels);
+    renderChart(data, labels);*/
 }
 
 function getIdToUrl(){
@@ -32,38 +36,20 @@ function getIdToUrl(){
     url = baseUrl + id;
 }
 
-
 function getData(){
 
     $.ajax({
         url: url,
         type:"GET",
         success: function (result){
-            console.log("---RESULTAT");
-            console.log(result);
+            createChart(result);
         },
         error: function (error){
             console.log("---ERROR");
             console.log(error);
         }
     })
-
-    //var url = 'http://bar.other/resources/public-data/';
-
-    //callOtherDomain();
-
-    /*fetch(url)
-        .then(res => res.json())
-        .then(data => {
-            // code to handle the response
-        }).catch(err => {
-        console.error('Error: ', err);
-    });*/
-
-    /*var data;
-    data.data = [];*/
 }
-
 
 function callOtherDomain() {
     var invocation = new XMLHttpRequest();
