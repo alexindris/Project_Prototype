@@ -20,15 +20,14 @@ Python 3.7
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+You need to configure your raspberry client.
 
 ```
-Give the example
+Running the code inside the Client folder
 ```
 
-And repeat
+Once that is done you can check on the website that all the data is available
+
 
 ```
 until finished
