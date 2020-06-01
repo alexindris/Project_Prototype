@@ -3,9 +3,15 @@ package com.tcm.prototype.persistence;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-
+import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+
 import com.tcm.prototype.domain.Data;
 import com.tcm.prototype.utilities.InvalidParamException;
 import com.tcm.prototype.utilities.NotFoundException;
@@ -64,6 +70,27 @@ public List<Data> getData(String dataId) throws NotFoundException, InvalidParamE
 		}
 		if(out.size()==0)
 		throw new NotFoundException();
+		out.sort(new Comparator<Data>() {
+
+			@Override
+			public int compare(Data o1, Data o2) {
+				DateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
+				try {
+					Date date1 = format.parse(o1.getDate());
+					Date date2 = format.parse(o2.getDate());
+					return date1.compareTo(date2) ;
+					
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				return 0;
+				
+				
+				
+			}
+			
+		});
 		return out;
 		
 	}catch(SQLException e) {
