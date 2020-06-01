@@ -18,6 +18,7 @@ import com.tcm.prototype.utilities.InvalidParamException;
 import com.tcm.prototype.utilities.NotFoundException;
 
 @RestController
+@CrossOrigin
 public class DataRestController {
 	
 	@Autowired
@@ -35,7 +36,6 @@ public class DataRestController {
 		return gson.toJson(data);
 		
 	}
-	@CrossOrigin(origins = "https://alexindris.github.io/Project_Prototype/")
 	@GetMapping("/data")
 	public String getAllData() throws InvalidParamException, NotFoundException {
 		List < DataDTO> alldata = dataController.getAllData();
