@@ -35,7 +35,7 @@ while True:
         exit(0)
 
     print(x.text)
-    time.sleep(1)
+    time.sleep(3600)
 
 
 
