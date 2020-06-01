@@ -10,7 +10,9 @@ sensor = dht.DHT22
 id = "1"
 sensor_type = "Humidity"
 pin = 4
-humidity = 0 
+humidity = 0
+def arduino_map(x, in_min, in_max, out_min, out_max):
+    return (x - in_min) * (out_max - out_min) // (in_max - in_min) + out_min
 
 while True:
     
@@ -24,7 +26,7 @@ while True:
               "time": currentTime,
               "date": currentDay,
               "sensor": sensor_type,
-              "value": map(humidity,0,1023,0,100)
+              "value": arduino_map(humidity,0,1023,0,100)
               }
     try:
         x = requests.post(url, json=values)
