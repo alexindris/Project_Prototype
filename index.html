@@ -10,14 +10,20 @@
 </head>
 
 <body>
-<div id="container">
+<div class="mainContainer">
 
     <button id="renderBtn">
         Render
     </button>
-    <input type = "text" value="1" id = "idSelector">
-    <div class="canvasContainer">
-        <canvas id="myChart"></canvas>
+    <input type = "text" value="1" id = "idSelector" >
+    <div class="canvasContainer" id="temperatureDiv" style="display:none">
+        <h2>TEMPERATURE</h2>
+        <canvas id="temperatureCanvas"></canvas>
+    </div>
+
+    <div class="canvasContainer" id="humidityDiv" style="display:none">
+        <h2>HUMIDITY</h2>
+        <canvas id="humidityCanvas"></canvas>
     </div>
 </div>
 </body>
