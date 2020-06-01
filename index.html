@@ -11,11 +11,11 @@
 
 <body>
 <div class="mainContainer">
-
-    <button id="renderBtn">
-        Render
+    <p>Enter the id of the device to load the data from</p>
+    <input type = "text" value="1" id = "idSelector" style="width: 40px;height: 18px;text-align: center;">
+    <button id="renderBtn" class="loadButton" onclick="prepareChart()">
+        Load Data
     </button>
-    <input type = "text" value="1" id = "idSelector" >
     <div class="canvasContainer" id="temperatureDiv" style="display:none">
         <h2>TEMPERATURE</h2>
         <canvas id="temperatureCanvas"></canvas>

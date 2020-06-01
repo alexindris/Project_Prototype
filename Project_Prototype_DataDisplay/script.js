@@ -1,7 +1,7 @@
 var baseUrl = "https://tcm-prototype-apirest.herokuapp.com/data/";
 var url = baseUrl;
 
-function renderChart(data, labels, id) {
+function renderChart(data, labels, id, dataColor) {
     var ctx = document.getElementById(id).getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'line',
@@ -10,12 +10,13 @@ function renderChart(data, labels, id) {
             datasets: [{
                 label: 'Last 24 hours',
                 data: data,
+                backgroundColor: dataColor
             }]
         },
     });
 }
 
-$("#renderBtn").click(prepareChart());
+//$("#renderBtn").onClick(prepareChart());
 
 function prepareChart() {
     $("#temperatureDiv").hide();
@@ -92,7 +93,7 @@ function createCharts(result) {
         }
         $("#temperatureDiv").show();
         //creem el gràfic de temperature
-        renderChart(data, labels, "temperatureCanvas");
+        renderChart(data, labels, "temperatureCanvas", "#ccf2ff");
     }
 
     data = [];
@@ -105,7 +106,7 @@ function createCharts(result) {
         }
         $("#humidityDiv").show();
         //creem el gràfic de humidity
-        renderChart(data, labels, "humidityCanvas");
+        renderChart(data, labels, "humidityCanvas", "#ccf2ff");
     }
 
 }
@@ -122,8 +123,8 @@ function sortByDate(array) {
     });
 }
 
-function ready() {
+/*function ready() {
     console.log("funciona el ready");
 }
 
-document.addEventListener("DOMContentLoaded", ready);
+document.addEventListener("DOMContentLoaded", ready);*/
