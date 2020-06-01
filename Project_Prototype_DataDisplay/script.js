@@ -83,8 +83,8 @@ function sortByDate(array){
     });
 }
 
-/*function ready(){
+function ready(){
     console.log("funciona el ready");
 }
 
-document.addEventListener("DOMContentLoaded", ready);*/
+document.addEventListener("DOMContentLoaded", ready);
