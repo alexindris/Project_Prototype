@@ -11,8 +11,8 @@ id = "1"
 sensor_type = "Humidity"
 pin = 4
 humidity = 0
-def arduino_map(x, in_min, in_max, out_min, out_max):
-    return (x - in_min) * (out_max - out_min) // (in_max - in_min) + out_min
+def valmap(value, istart, istop, ostart, ostop):
+  return ostart + (ostop - ostart) * ((value - istart) / (istop - istart))
 
 while True:
     
@@ -26,7 +26,7 @@ while True:
               "time": currentTime,
               "date": currentDay,
               "sensor": sensor_type,
-              "value": arduino_map(humidity,0,1023,0,100)
+              "value": valmap(humidity,0,1023,0,100)
               }
     try:
         x = requests.post(url, json=values)
