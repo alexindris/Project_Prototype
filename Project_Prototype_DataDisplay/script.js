@@ -23,6 +23,17 @@ function prepareChart(){
     getData();
 }
 
+/*
+* Funcio per llegir de quina raspberry volem llegir la temperatura amb el input
+* */
+function getIdToUrl(){
+    var id = document.getElementById("idSelector").value;
+    url = baseUrl + id;
+}
+
+/*
+* Ajax per obtenir les dades de la base de dades
+* */
 function getData(){
     $.ajax({
         url: url,
@@ -31,12 +42,15 @@ function getData(){
             createChart(result);
         },
         error: function (error){
-            console.log("---ERROR");
+            console.log("ERROR: no s'han pogut obtenir les dades amb l'ajax");
             console.log(error);
         }
     })
 }
 
+/*
+* Passem amb l'ajax les dades a aquesta funcio que crea la taula
+* */
 function createChart(result){
     //convertim la string de data que arriba en objecte
     var obj = JSON.parse(result);
@@ -57,11 +71,9 @@ function createChart(result){
     renderChart(data, labels);
 }
 
-function getIdToUrl(){
-    var id = document.getElementById("idSelector").value;
-    url = baseUrl + id;
-}
-
+/*
+* Funcio per endreçar tota la info que arriba en funcio de la data de manera que agafem les ultimes 24 hores
+* */
 function sortByDate(array){
     //new date any mes dia
     array.sort(function(a, b) {
@@ -71,11 +83,8 @@ function sortByDate(array){
     });
 }
 
-
-
-
-function ready(){
+/*function ready(){
     console.log("funciona el ready");
 }
 
-document.addEventListener("DOMContentLoaded", ready);
+document.addEventListener("DOMContentLoaded", ready);*/
