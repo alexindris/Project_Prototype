@@ -24,7 +24,7 @@ while True:
               "time": currentTime,
               "date": currentDay,
               "sensor": sensor_type,
-              "value": ("{1:0.1f}".format(humidity))
+              "value": str(("{1:0.1f}".format(humidity)))
               }
     try:
         x = requests.post(url, json=values)
