@@ -74,10 +74,10 @@ public List<Data> getData(String dataId) throws NotFoundException, InvalidParamE
 
 			@Override
 			public int compare(Data o1, Data o2) {
-				DateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
+				DateFormat format = new SimpleDateFormat("MM/DD/yy-HH:mm:ss", Locale.ENGLISH);
 				try {
-					Date date1 = format.parse(o1.getDate());
-					Date date2 = format.parse(o2.getDate());
+					Date date1 = format.parse(o1.getDate()+"-"+o1.getTime());
+					Date date2 = format.parse(o2.getDate()+"-"+o2.getTime());
 					return date1.compareTo(date2) ;
 					
 				} catch (ParseException e) {
