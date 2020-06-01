@@ -18,7 +18,7 @@ while True:
     date = datetime.datetime.now()
 
     currentTime = date.strftime("%X")
-    currentDay = date.strftime("%m/%d/%Y")
+    currentDay = date.strftime("%d/%m/%Y")
 
     values = {"id": id,
               "time": currentTime,
