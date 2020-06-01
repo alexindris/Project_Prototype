@@ -10,7 +10,7 @@ sensor = dht.DHT22
 id = "1"
 sensor_type = "Humidity"
 pin = 4
-humidity = 0
+humidity = 0 
 
 while True:
     
@@ -33,7 +33,7 @@ while True:
         exit(0)
 
     print(x.text)
-    time.sleep(3600)
+    time.sleep(1)
 
 
 
