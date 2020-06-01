@@ -9,7 +9,7 @@ function renderChart(data, labels) {
         data: {
             labels: labels,
             datasets: [{
-                label: 'This week',
+                label: 'Last 24 hours',
                 data: data,
             }]
         },
@@ -23,21 +23,7 @@ function prepareChart(){
     getData();
 }
 
-function createChart(result){
-    console.log("---RESULTAT");
-    console.log(result);
-    /*data = [20000, 14000, 12000, 15000, 18000, 19000, 22000];
-    labels =  ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
-    renderChart(data, labels);*/
-}
-
-function getIdToUrl(){
-    var id = document.getElementById("idSelector").value;
-    url = baseUrl + id;
-}
-
 function getData(){
-
     $.ajax({
         url: url,
         type:"GET",
@@ -51,14 +37,42 @@ function getData(){
     })
 }
 
-function callOtherDomain() {
-    var invocation = new XMLHttpRequest();
-    if(invocation) {
-        invocation.open('GET', url, true);
-        //invocation.onreadystatechange = handler;
-        invocation.send();
+function createChart(result){
+    //convertim la string de data que arriba en objecte
+    var obj = JSON.parse(result);
+    var data = [];
+    var labels = [];
+
+    //endreçem les dades que ens arriben
+    sortByDate(obj);
+
+    //omplim les variables que formen la x i y del gràfic
+    if(obj){
+        for(var i = 0; i<obj.length && i < 24; i++){
+            data.push(obj[i].value);
+            labels.push(obj[i].time);
+        }
     }
+    //creem el gràfic
+    renderChart(data, labels);
 }
+
+function getIdToUrl(){
+    var id = document.getElementById("idSelector").value;
+    url = baseUrl + id;
+}
+
+function sortByDate(array){
+    //new date any mes dia
+    array.sort(function(a, b) {
+        var dateA = new Date(parseInt(a.date.substring(6) + "20"), parseInt(a.date.substring(0,2)), parseInt(a.date.substring(3,5)));
+        var dateB = new Date(parseInt(b.date.substring(6) + "20"), parseInt(b.date.substring(0,2)), parseInt(b.date.substring(3,5)));
+        return dateA - dateB;
+    });
+}
+
+
+
 
 function ready(){
     console.log("funciona el ready");
