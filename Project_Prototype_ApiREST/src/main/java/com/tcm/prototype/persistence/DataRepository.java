@@ -150,4 +150,29 @@ public void saveData(Data data) throws InvalidParamException {
 }
 
 }
+
+
+public List<String> getAllIds() throws NotFoundException, InvalidParamException {
+
+	ConnectionBBDD connection = ConnectionRepository.getConnection();
+	List<String> out = new ArrayList<String>();
+	try {
+		String sql = "SELECT DISTINCT(D_ID) FROM DATA";
+		PreparedStatement pst = connection.prepareStatement(sql);
+		pst.clearParameters();
+		ResultSet rs= pst.executeQuery();
+		while(rs.next()) {
+			String id = rs.getString("D_ID");
+			out.add(id);
+		}
+		if(out.size()==0)
+		throw new NotFoundException();
+		out.sort(null);
+		return out;
+		
+	}catch(SQLException e) {
+		e.printStackTrace();
+		throw new InvalidParamException();
+	}
+}
 }

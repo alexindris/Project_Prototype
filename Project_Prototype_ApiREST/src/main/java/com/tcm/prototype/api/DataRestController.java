@@ -36,6 +36,13 @@ public class DataRestController {
 		return gson.toJson(data);
 		
 	}
+	@GetMapping("/data/id")
+	public String getAllId() throws NotFoundException, InvalidParamException {
+		Gson gson = new Gson();
+		List<String> ids = dataController.getAllIds();
+		return gson.toJson(ids);
+		
+	}
 	@GetMapping("/data")
 	public String getAllData() throws InvalidParamException, NotFoundException {
 		List < DataDTO> alldata = dataController.getAllData();

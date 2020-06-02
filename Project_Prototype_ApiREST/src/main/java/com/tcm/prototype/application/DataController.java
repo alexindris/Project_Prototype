@@ -50,6 +50,11 @@ public class DataController {
 			dataRepo.saveData(data);
 		return new DataDTO(data);
 	}
+
+	public List<String> getAllIds() throws NotFoundException, InvalidParamException {
+		
+		return dataRepo.getAllIds();
+	}
 	
 	
 }
