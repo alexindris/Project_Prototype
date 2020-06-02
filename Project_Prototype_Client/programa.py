@@ -25,20 +25,23 @@ while True:
         "time": currentTime,
         "date": currentDay,
         "sensor": "Temperature",
-        "value": temperature}
+        "value": (str)(round(temperature, 2))}
     
     try:
-        x = requests.post(url, json=values_t)
+        x = requests.post(url, json = values_t)
     except requests.exceptions.RequestException as e:
         print("ConnectionError:"+str(e))
         exit(0)
 
     print("Temperatura")
     print(temperature)
-    
+    print(currentTime)
     print(x.text)
+    
     time.sleep(1)
-
+    
+    date = datetime.datetime.now()
+    
     currentTime = date.strftime("%X")
     currentDay = date.strftime("%d/%m/%Y")
 
@@ -46,16 +49,16 @@ while True:
               "time": currentTime,
               "date": currentDay,
               "sensor": sensor_type,
-              "value": round(humidity, 2)}
-    
+              "value": (str)(round(humidity, 2))}
+
     try:
-        x = requests.post(url, json=values_h)
+        x = requests.post(url, json = values_h)
     except requests.exceptions.RequestException as e:  # This is the correct syntax
-        print("ConnectionError:"+str(e))
+        print("ConnectionError:" + str(e))
         exit(0)
 
     print("Humedad")
     print(humidity)
-    
+    print(currentTime)
     print(x.text)
     time.sleep(3600)
