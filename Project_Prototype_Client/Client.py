@@ -33,9 +33,6 @@ while True:
         print("ConnectionError:"+str(e))
         exit(0)
 
-    print("Temperatura")
-    print(temperature)
-    print(currentTime)
     print(x.text)
     
     time.sleep(1)
@@ -56,9 +53,5 @@ while True:
     except requests.exceptions.RequestException as e:  # This is the correct syntax
         print("ConnectionError:" + str(e))
         exit(0)
-
-    print("Humedad")
-    print(humidity)
-    print(currentTime)
     print(x.text)
     time.sleep(3600)
