@@ -11,8 +11,6 @@ id = "1"
 sensor_type = "Humidity"
 pin = 4
 humidity = 0
-def valmap(value, istart, istop, ostart, ostop):
-  return ostart + (ostop - ostart) * ((value - istart) / (istop - istart))
 
 while True:
     
@@ -22,20 +20,42 @@ while True:
     currentTime = date.strftime("%X")
     currentDay = date.strftime("%d/%m/%Y")
 
-    values = {"id": id,
+    values_t = {
+        "id": id,
+        "time": currentTime,
+        "date": currentDay,
+        "sensor": "Temperature",
+        "value": temperature}
+    
+    try:
+        x = requests.post(url, json=values_t)
+    except requests.exceptions.RequestException as e:
+        print("ConnectionError:"+str(e))
+        exit(0)
+
+    print("Temperatura")
+    print(temperature)
+    
+    print(x.text)
+    time.sleep(1)
+
+    currentTime = date.strftime("%X")
+    currentDay = date.strftime("%d/%m/%Y")
+
+    values_h = {"id": id,
               "time": currentTime,
               "date": currentDay,
               "sensor": sensor_type,
-              "value": valmap(humidity,0,1023,0,100)
-              }
+              "value": round(humidity, 2)}
+    
     try:
-        x = requests.post(url, json=values)
+        x = requests.post(url, json=values_h)
     except requests.exceptions.RequestException as e:  # This is the correct syntax
         print("ConnectionError:"+str(e))
         exit(0)
 
+    print("Humedad")
+    print(humidity)
+    
     print(x.text)
     time.sleep(3600)
-
-
-
