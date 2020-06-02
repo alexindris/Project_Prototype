@@ -15,6 +15,15 @@ function renderChart(data, labels, id, dataColor) {
                 backgroundColor: dataColor
             }]
         },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
     });
 }
 
@@ -25,13 +34,16 @@ function prepareChart() {
     $("#humidityDiv").hide();
     getIdToUrl();
     getData();
+    getAvailableIds();
 }
 
 /*
 * Funcio per llegir de quina raspberry volem llegir la temperatura amb el input
 * */
 function getIdToUrl() {
-    var id = document.getElementById("idSelector").value;
+    var id = document.getElementById("idsInput").value;
+    console.log("ID DEL INPUT");
+    console.log(id);
     url = baseUrl + id;
 }
 
@@ -142,13 +154,20 @@ function getAvailableIds(){
 function loadIds(result){
     var obj = JSON.parse(result);
 
+    document.getElementById("ids").innerHTML ='';//aquest elimina les opcions de l'html
+
     if(obj){
         for(var i = 0; i < obj.length; i++){
             $("#ids").append("<option value=" + obj[i] + ">");
         }
     }
 
-    document.getElementById("renderBtn").on( "click", prepareChart);
+    document.getElementById("renderBtn").addEventListener("click", prepareChart);
+    document.getElementById("idsInput").addEventListener("click", deleteDataFromInput);
+}
+
+function deleteDataFromInput(){
+    document.getElementById("idsInput").value ='';
 }
 
 function ready() {
