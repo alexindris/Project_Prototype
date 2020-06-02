@@ -1,5 +1,6 @@
 var baseUrl = "https://tcm-prototype-apirest.herokuapp.com/data/";
 var url = baseUrl;
+var urlId = "https://tcm-prototype-apirest.herokuapp.com/data/id";
 
 function renderChart(data, labels, id, dataColor) {
     var ctx = document.getElementById(id).getContext('2d');
@@ -123,8 +124,35 @@ function sortByDate(array) {
     });
 }
 
-/*function ready() {
-    console.log("funciona el ready");
+function getAvailableIds(){
+    $.ajax({
+        url: urlId,
+        type: "GET",
+        success: function (result) {
+            loadIds(result);
+        },
+        error: function (error) {
+            console.log("ERROR: no s'han pogut obtenir els ids amb l'ajax");
+            console.log(error);
+        }
+    })
 }
 
-document.addEventListener("DOMContentLoaded", ready);*/
+function loadIds(result){
+    var obj = JSON.parse(result);
+
+    if(obj){
+        for(var i = 0; i < obj.length; i++){
+            $("#ids").append("<option value=" + obj[i] + ">");
+        }
+    }
+
+    document.getElementById("renderBtn").on( "click", prepareChart());
+}
+
+function ready() {
+    console.log("funciona el ready");
+    getAvailableIds();
+}
+
+document.addEventListener("DOMContentLoaded", ready);

@@ -12,8 +12,17 @@
 <body>
 <div class="mainContainer">
     <p>Enter the id of the device to load the data from</p>
-    <input type = "text" value="1" id = "idSelector" style="width: 40px;height: 18px;text-align: center;">
-    <button id="renderBtn" class="loadButton" onclick="prepareChart()">
+    <!--<input type = "text" value="1" id = "idSelector" style="width: 40px;height: 18px;text-align: center;">-->
+    <input list="ids">
+
+    <datalist id="ids">
+        <!--<option value="Internet Explorer">
+        <option value="Firefox">
+        <option value="Google Chrome">
+        <option value="Opera">
+        <option value="Safari">-->
+    </datalist>
+    <button id="renderBtn" class="loadButton"> <!--onclick="prepareChart()">-->
         Load Data
     </button>
     <div class="canvasContainer" id="temperatureDiv" style="display:none">
