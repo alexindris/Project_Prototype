@@ -2,6 +2,7 @@ var baseUrl = "https://tcm-prototype-apirest.herokuapp.com/data/";
 var url = baseUrl;
 var urlId = "https://tcm-prototype-apirest.herokuapp.com/data/id";
 
+
 function renderChart(data, labels, id, dataColor) {
     var ctx = document.getElementById(id).getContext('2d');
     var myChart = new Chart(ctx, {
@@ -147,7 +148,7 @@ function loadIds(result){
         }
     }
 
-    document.getElementById("renderBtn").on( "click", prepareChart());
+    document.getElementById("renderBtn").on( "click", prepareChart);
 }
 
 function ready() {
@@ -156,3 +157,5 @@ function ready() {
 }
 
 document.addEventListener("DOMContentLoaded", ready);
+
+
