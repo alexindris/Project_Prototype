@@ -11,14 +11,17 @@
 
 <body>
 <div class="mainContainer">
-    <p>Enter the id of the device to load the data from</p>
-    <!--<input type = "text" value="1" id = "idSelector" style="width: 40px;height: 18px;text-align: center;">-->
-    <input list="ids" id ="idsInput" type = "text">
+    <p>Select the id of the device to load the data from</p>
+    <p id="wait" style="color:red">Wait until a text field appears</p>
+    <div id="divInput" class = "divInput" style="display:none;">
+        <input list="ids" id ="idsInput" type = "text">
 
-    <datalist id="ids">
-        <!--<option value="Internet Explorer">-->
-    </datalist>
-    <button id="renderBtn" class="loadButton"> <!--onclick="prepareChart()">-->
+        <datalist id="ids">
+            <!--<option value="Internet Explorer">-->
+        </datalist>
+    </div>
+
+    <button id="renderBtn" class="loadButton">
         Load Data
     </button>
     <div class="canvasContainer" id="temperatureDiv" style="display:none">

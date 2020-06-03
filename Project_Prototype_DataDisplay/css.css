@@ -8,7 +8,6 @@
     margin-left: auto;
     margin-right: auto;
     display: block;
-
 }
 
 .mainContainer{
@@ -30,6 +29,7 @@
     color: white;
 }
 
-.input{
-    width: 15px;
+.divInput{
+    /*width: 15px;*/
+    display: inline-block
 }
