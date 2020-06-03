@@ -40,13 +40,12 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#download">Download</a>
+            <a class="nav-link js-scroll-trigger" href="#parts">Parts</a>
+          </li><li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#code">Code</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#features">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            <a class="nav-link js-scroll-trigger" href="#team">Team</a>
           </li>
         </ul>
       </div>
@@ -66,10 +65,6 @@
           <div class="device-container">
             <div class="device-mockup iphone6_plus portrait white">
               <div class="device">
-                <div class="screen">
-                  <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
-                  <img src="Project_Prototype_DataDisplay/img/demo-screen-1.jpg" class="img-fluid" alt="">
-                </div>
                 <div class="button">
                   <!-- You can hook the "home button" to some JavaScript events or just remove it -->
                 </div>
@@ -81,72 +76,35 @@
     </div>
   </header>
 
-  <section class="download bg-primary text-center" id="download">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 mx-auto">
-          <h2 class="section-heading">Discover what this project is all about!</h2>
-          <p>Our app is available on any device!</p>
-          <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger">Try it here</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="features" id="features">
+  <section class="part_prototype" id="parts">
     <div class="container">
       <div class="section-heading text-center">
-        <h2>Infinit number of sensors</h2>
+        <h2>PARTS OF PROJECT</h2>
         <p class="text-muted">Check out what you can do with this app theme!</p>
-        <hr>
       </div>
       <div class="row">
-        <div class="col-lg-4 my-auto">
-          <div class="device-container">
-            <div class="device-mockup iphone6_plus portrait white">
-              <div class="device">
-                <div class="screen">
-                  <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
-                  <img src="Project_Prototype_DataDisplay/img/demo-screen-1.jpg" class="img-fluid" alt="">
-                </div>
-                <div class="button">
-                  <!-- You can hook the "home button" to some JavaScript events or just remove it -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-8 my-auto">
+        <div class="col-lg-8 my-auto" style="margin:auto">
           <div class="container-fluid">
             <div class="row">
               <div class="col-lg-6">
                 <div class="feature-item">
-                  <i class="icon-screen-smartphone text-primary"></i>
-                  <h3>Device Mockups</h3>
-                  <p class="text-muted">Ready to use HTML/CSS device mockups, no Photoshop required!</p>
+                  <img src="Project_Prototype_DataDisplay/img/sensorDibujo.png" width="75" height="100"></img>
+                  <h3>Data capture</h3>
+                  <p class="text-muted">Read and processed of data from Raspberry PI</p>
                 </div>
               </div>
               <div class="col-lg-6">
                 <div class="feature-item">
-                  <i class="icon-camera text-primary"></i>
-                  <h3>Flexible Use</h3>
-                  <p class="text-muted">Put an image, video, animation, or anything else in the screen!</p>
+                  <img src="Project_Prototype_DataDisplay/img/bbddDibujo.png" width="75" height="100"></img>
+                  <h3>API REST</h3>
+                  <p class="text-muted">The data is transferred to our Oracle database</p>
                 </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-6">
+              <div class="col-lg-6" style="margin:auto">
                 <div class="feature-item">
-                  <i class="icon-present text-primary"></i>
-                  <h3>Free to Use</h3>
-                  <p class="text-muted">As always, this theme is free to download and use for any purpose!</p>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="feature-item">
-                  <i class="icon-lock-open text-primary"></i>
-                  <h3>Open Source</h3>
-                  <p class="text-muted">Since this theme is MIT licensed, you can use it commercially!</p>
+                  <img src="Project_Prototype_DataDisplay/img/webDibujo.png" width="75" height="75"></img>
+                  <h3>WEB</h3>
+                  <p class="text-muted">With this web you can select what sensor you want control and see a graphic with the humidity and temperature of it.</p>
                 </div>
               </div>
             </div>
@@ -156,55 +114,33 @@
     </div>
   </section>
 
-  <section class="cta">
-    <div class="cta-content">
-      <div class="container">
-        <h2>Stop waiting.<br>Start building.</h2>
-        <a href="#contact" class="btn btn-outline btn-xl js-scroll-trigger">Let's Get Started!</a>
+  <section class="download bg-primary text-center" id="code">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <h2 class="section-heading">Code</h2>
+          <p>Whether you want you can see all of the project code here</p>
+          <a href="https://github.com/alexindris/Project_Prototype.git" class="btn btn-outline btn-xl js-scroll-trigger">Go to code</a>
+        </div>
       </div>
     </div>
-    <div class="overlay"></div>
   </section>
 
-  <section class="contact bg-primary" id="contact">
-    <div class="container">
-      <h2>We
-        <i class="fas fa-heart"></i>
-        new friends!</h2>
-      <ul class="list-inline list-social">
-        <li class="list-inline-item social-twitter">
-          <a href="#">
-            <i class="fab fa-twitter"></i>
-          </a>
+  <section class="the_team" id="team">
+    <div class="container" align="center">
+      <h2>The team</h2>
+      <ul class="our_photos">
+        <li class="noelia_munoz">
+           <img src="Project_Prototype_DataDisplay/img/noeAvatar.png" width="100" height="100"></img>
+           <img src="Project_Prototype_DataDisplay/img/Marta.png" width="100" height="100"></img>         
+          <img src="Project_Prototype_DataDisplay/img/Avatar-Maker.png" width="100" height="100"></img>
         </li>
-        <li class="list-inline-item social-facebook">
-          <a href="#">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-        </li>
-        <li class="list-inline-item social-google-plus">
-          <a href="#">
-            <i class="fab fa-google-plus-g"></i>
-          </a>
-        </li>
-      </ul>
     </div>
   </section>
 
   <footer>
     <div class="container">
-      <p>&copy; Your Website 2019. All Rights Reserved.</p>
-      <ul class="list-inline">
-        <li class="list-inline-item">
-          <a href="#">Privacy</a>
-        </li>
-        <li class="list-inline-item">
-          <a href="#">Terms</a>
-        </li>
-        <li class="list-inline-item">
-          <a href="#">FAQ</a>
-        </li>
-      </ul>
+      <p>&copy; Your Website 2020. All Rights Reserved.</p>
     </div>
   </footer>
 
