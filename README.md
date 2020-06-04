@@ -29,11 +29,7 @@ Running the code inside the Client folder
 Once that is done you can check on the website that all the data is available
 
 
-```
-until finished
-```
 
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
@@ -61,7 +57,10 @@ Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-* [Maven](https://maven.apache.org/) - Dependency Management
+* [Gradle](https://gradle.org/) - Dependency Management
+* [Spring](https://spring.io/) - Frame Work
+* [Oracle](https://www.oracle.com/) - Database
+
 
 ## Versioning
 
@@ -69,11 +68,11 @@ Add additional notes about how to deploy this on a live system
 
 ## Authors
 
-* **NOELIA MUÑOZ** - *Initial work* - [PurpleBooth](https://github.com/NoeliaMGU)
+* **NOELIA MUÑOZ** - *Initial work* - [NoeliaMGU](https://github.com/NoeliaMGU)
 
-* **MARTA ORTUÑO** - *Initial work* - [PurpleBooth](https://github.com/MartaOG)
+* **MARTA ORTUÑO** - *Initial work* - [MartaOG](https://github.com/MartaOG)
 
-* **ÀLEX TELLO** - *Initial work* - [PurpleBooth](https://github.com/alexindris)
+* **ÀLEX TELLO** - *Initial work* - [Alexindris](https://github.com/alexindris)
 
 
 ## License
