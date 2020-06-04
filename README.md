@@ -53,6 +53,3 @@ Add additional notes about how to deploy this on a live system
 * **ÀLEX TELLO** - *Api rest development* - [Alexindris](https://github.com/alexindris)
 
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
