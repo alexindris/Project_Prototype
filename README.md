@@ -46,9 +46,9 @@ Add additional notes about how to deploy this on a live system
 
 ## Authors
 
-* **NOELIA MUÑOZ** - *Initial work* - [NoeliaMGU](https://github.com/NoeliaMGU)
+* **NOELIA MUÑOZ** - *DDBB INTEGRATION work* - [NoeliaMGU](https://github.com/NoeliaMGU)
 
-* **MARTA ORTUÑO** - *Initial work* - [MartaOG](https://github.com/MartaOG)
+* **MARTA ORTUÑO** - *CLIENT SIDE work* - [MartaOG](https://github.com/MartaOG)
 
-* **ÀLEX TELLO** - *Api rest development* - [Alexindris](https://github.com/alexindris)
+* **ÀLEX TELLO** - *API REST development* - [Alexindris](https://github.com/alexindris)
 
