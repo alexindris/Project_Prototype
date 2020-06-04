@@ -16,6 +16,7 @@ These instructions will get you a copy of the project up and running on your loc
 ```
 Java 1.8
 Python 3.7
+Bootstrap 4
 ```
 
 ### Installing
@@ -27,29 +28,6 @@ Running the code inside the Client folder
 ```
 
 Once that is done you can check on the website that all the data is available
-
-
-
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
 
 ## Deployment
 
@@ -72,7 +50,7 @@ Add additional notes about how to deploy this on a live system
 
 * **MARTA ORTUÑO** - *Initial work* - [MartaOG](https://github.com/MartaOG)
 
-* **ÀLEX TELLO** - *Initial work* - [Alexindris](https://github.com/alexindris)
+* **ÀLEX TELLO** - *Api rest development* - [Alexindris](https://github.com/alexindris)
 
 
 ## License
