@@ -4,8 +4,8 @@ This is our Software Lab project goal is to get, store, and show the data from o
 
 This project has different phases:
 1. Data collection is dealt with inside the raspberry pi and processed on it.
-2. REST API  the data is transferred to an API that will save our data on a MySQL database.
-3. Real native App which will be able to save all the data to the end-user   
+2. REST API  the data is transferred to an API that will save our data on a Oracle database.
+3. Javascript, HTML and CSS which will be able to show all the data to the end-user   
 
 ## Getting Started
 
@@ -46,10 +46,9 @@ Add additional notes about how to deploy this on a live system
 
 ## Authors
 
-* **NOELIA MUÑOZ** - *Initial work* - [NoeliaMGU](https://github.com/NoeliaMGU)
+* **NOELIA MUÑOZ** - *DDBB INTEGRATION work* - [NoeliaMGU](https://github.com/NoeliaMGU)
 
-* **MARTA ORTUÑO** - *Initial work* - [MartaOG](https://github.com/MartaOG)
+* **MARTA ORTUÑO** - *CLIENT SIDE work* - [MartaOG](https://github.com/MartaOG)
 
-* **ÀLEX TELLO** - *Api rest development* - [Alexindris](https://github.com/alexindris)
-
+* **ÀLEX TELLO** - *API REST development* - [Alexindris](https://github.com/alexindris)
 

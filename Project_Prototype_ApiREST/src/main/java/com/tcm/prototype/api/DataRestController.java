@@ -25,7 +25,7 @@ public class DataRestController {
 	private DataController dataController;
 	
 	@PostMapping("/data")
-	public String crateUser(@RequestBody String jData) throws InvalidParamException {
+	public String createUser(@RequestBody String jData) throws InvalidParamException {
 		Gson gson = new Gson();
 		
 		DataDTO dataDTO = gson.fromJson(jData, DataDTO.class);
