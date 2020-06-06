@@ -7,7 +7,8 @@ This project has different phases:
 2. REST API  the data is transferred to an API that will save our data on a Oracle database.
 3. Javascript, HTML and CSS which will be able to show all the data to the end-user  
 
-![IMAGE](https://github.com/alexindris/Project_Prototype/blob/master/Project_Prototype_DataDisplay/Prototype%20UML.png) 
+![IMAGE](https://github.com/alexindris/Project_Prototype/blob/master/Project_Prototype_DataDisplay/Prototype%20UML.png)
+![IMAGE](Project_Prototype_DataDisplay/Prototype%20UML.png) 
 
 ## Getting Started
 
