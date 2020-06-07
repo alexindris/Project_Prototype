@@ -5,7 +5,9 @@ This is our Software Lab project goal is to get, store, and show the data from o
 This project has different phases:
 1. Data collection is dealt with inside the raspberry pi and processed on it.
 2. REST API  the data is transferred to an API that will save our data on a Oracle database.
-3. Javascript, HTML and CSS which will be able to show all the data to the end-user   
+3. Javascript, HTML and CSS which will be able to show all the data to the end-user  
+
+![IMAGE](Project_Prototype_DataDisplay/Prototype%20UML.png) 
 
 ## Getting Started
 
@@ -51,4 +53,3 @@ Add additional notes about how to deploy this on a live system
 * **MARTA ORTUÑO** - *CLIENT SIDE work* - [MartaOG](https://github.com/MartaOG)
 
 * **ÀLEX TELLO** - *API REST development* - [Alexindris](https://github.com/alexindris)
-
