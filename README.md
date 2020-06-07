@@ -25,6 +25,7 @@ Bootstrap 4
 
 You need to configure your raspberry client.
 
+![IMAGE](Project_Prototype_Client/circuit.PNG) 
 ```
 Running the code inside the Client folder
 ```
