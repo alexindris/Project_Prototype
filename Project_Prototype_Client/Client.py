@@ -11,7 +11,7 @@ id = "1"
 sensor_type = "Humidity"
 pin = 4
 humidity = 0
-
+id = input("Tell me the id")
 while True:
     
     humidity, temperature = dht.read_retry(sensor, pin)
