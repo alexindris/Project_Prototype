@@ -32,9 +32,9 @@ Running the code inside the Client folder
 
 Once that is done you can check on the website that all the data is available
 
-## Deployment
+## Repository
 
-Add additional notes about how to deploy this on a live system
+https://github.com/alexindris/Project_Prototype
 
 ## Built With
 
