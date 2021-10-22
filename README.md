@@ -1,6 +1,6 @@
 # Project Prototype
 
-This is our Software Lab project goal is to get, store, and show the data from our crops using IoT.
+This is our Software Lab project, the goal is to get, store, and show the data from our crops using IoT.
 
 This project has different phases:
 1. Data collection is dealt with inside the raspberry pi and processed on it.
